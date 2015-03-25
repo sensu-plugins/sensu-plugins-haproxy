@@ -102,7 +102,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          boolean: false,
          description: 'Whether service name specified with -s should be exact match or not'
 
-  def run
+  def run #rubocop:disable all
     if config[:service] || config[:all_services]
       services = acquire_services
     else
@@ -137,7 +137,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
     end
   end
 
-  def acquire_services
+  def acquire_services #rubocop:disable all
     uri = URI.parse(config[:stats_source])
 
     if uri.is_a?(URI::Generic) && File.socket?(uri.path)

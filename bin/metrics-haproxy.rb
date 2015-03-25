@@ -109,7 +109,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: 1,
          proc: proc(&:to_i)
 
-  def acquire_stats
+  def acquire_stats # rubocop:disable all
     uri = URI.parse(config[:connection])
 
     if uri.is_a?(URI::Generic) && File.socket?(uri.path)
@@ -132,7 +132,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
     return nil
   end
 
-  def run
+  def run #rubocop:disable all
     out = nil
     1.upto(config[:retries]) do |_i|
       out = acquire_stats
@@ -174,9 +174,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
       elsif config[:server_metrics]
         output "#{config[:scheme]}.#{line[0]}.#{line[1]}.session_total", line[7]
       end
-
     end
-
     ok
   end
 end
