@@ -5,7 +5,6 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-haproxy.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-haproxy)
-## Functionality
 
 ## Functionality
 
