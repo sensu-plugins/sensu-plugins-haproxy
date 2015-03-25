@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 #
-#   <script name>
+#   metrics-haproxy
 #
 # DESCRIPTION:
 #   If you are occassionally seeing "nil output" from this check, make sure you have
@@ -14,14 +14,15 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: <?>
+#   gem: net/http
+#   gem: net/https
+#   gem: socket
+#   gem: csv
+#   gem: uri
 #
 # USAGE:
-#   example commands
 #
 # NOTES:
-#   #YELLOW
-#   backend pool single node stats
 #
 # LICENSE:
 #   Pete Shima <me@peteshima.com>, Joe Miller <https://github.com/joemiller>
@@ -29,7 +30,6 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/metric/cli'
 require 'net/http'
 require 'net/https'
@@ -37,6 +37,9 @@ require 'socket'
 require 'csv'
 require 'uri'
 
+#
+# HA Proxy Metrics
+#
 class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
   option :connection,
          short: '-c HOSTNAME|SOCKETPATH',

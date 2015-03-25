@@ -5,6 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-haproxy.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-haproxy)
+## Functionality
 
 ## Functionality
 
@@ -31,7 +32,7 @@ You can also download the key from /certs/ within each repository.
 
 #### Bundler
 
-Add *sensu-plugins-disk-checks* to your Gemfile and run `bundle install` or `bundle update`
+Add *sensu-plugins-haproxy* to your Gemfile and run `bundle install` or `bundle update`
 
 #### Chef
 
@@ -39,7 +40,7 @@ Using the Sensu **sensu_gem** LWRP
 ```
 sensu_gem 'sensu-plugins-haproxy' do
   options('--prerelease')
-  version '0.0.1.alpha.4'
+  version '0.0.1.alpha.1'
 end
 ```
 
@@ -47,14 +48,8 @@ Using the Chef **gem_package** resource
 ```
 gem_package 'sensu-plugins-haproxy' do
   options('--prerelease')
-  version '0.0.1.alpha.4'
+  version '0.0.1.alpha.1'
 end
 ```
 
 ## Notes
-
-[1]:[https://travis-ci.org/sensu-plugins/sensu-plugins-haproxy]
-[2]:[http://badge.fury.io/rb/sensu-plugins-haproxy]
-[3]:[https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy]
-[4]:[https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy]
-[5]:[https://gemnasium.com/sensu-plugins/sensu-plugins-haproxy]

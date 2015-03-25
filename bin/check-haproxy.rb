@@ -29,13 +29,15 @@
 #   for details.
 #
 
-require 'rubygems' if RUBY_VERSION < '1.9.0'
 require 'sensu-plugin/check/cli'
 require 'net/http'
 require 'socket'
 require 'csv'
 require 'uri'
 
+#
+# Check HA Proxy
+#
 class CheckHAProxy < Sensu::Plugin::Check::CLI
   option :stats_source,
          short: '-S HOSTNAME|SOCKETPATH',
