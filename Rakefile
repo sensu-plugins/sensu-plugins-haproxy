@@ -32,7 +32,7 @@ task :make_bin_executable do
   `chmod -R +x bin/*`
 end
 
-desc 'Retrieve the current version of sensu-yieldbot-consul'
+desc 'Retrieve the current version'
 task :version do
   puts SensuPluginsHAProxy::Version.json_version
 end
