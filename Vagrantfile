@@ -58,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vagrant_config['cent7']['role'].each do |r|
         chef.add_role(r)
       end
-       #chef.add_recipe 'apache2'
+      # chef.add_recipe 'apache2'
     end
   end
 
@@ -87,12 +87,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     bsd9.vm.box = vagrant_config['bsd9']['box']
 
     # Use rsync as a shared folder
-    bsd9.vm.synced_folder ".", "/vagrant", type: 'rsync'
+    bsd9.vm.synced_folder '.', '/vagrant', type: 'rsync'
     bsd9.vm.provision 'chef_zero' do |chef|
       chef.synced_folder_type = 'rsync'
       chef.roles_path = vagrant_config['bsd9']['role_path']
       vagrant_config['bsd9']['role'].each do |r|
-       chef.add_role(r)
+        chef.add_role(r)
       end
     end
   end
@@ -102,12 +102,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     bsd10.vm.box = vagrant_config['bsd10']['box']
 
     # Use rsync as a shared folder
-    bsd10.vm.synced_folder ".", "/vagrant", type: 'rsync'
+    bsd10.vm.synced_folder '.', '/vagrant', type: 'rsync'
     bsd10.vm.provision 'chef_zero' do |chef|
       chef.synced_folder_type = 'rsync'
       chef.roles_path = vagrant_config['bsd10']['role_path']
       vagrant_config['bsd10']['role'].each do |r|
-       chef.add_role(r)
+        chef.add_role(r)
       end
     end
   end
