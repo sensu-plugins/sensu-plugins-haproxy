@@ -10,3 +10,5 @@
 
 * update Vagrantfile
 * add gem metadata
+* modify .gitignore
+* add new version and bump methods and tasks
