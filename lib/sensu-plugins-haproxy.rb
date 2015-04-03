@@ -1,7 +1,15 @@
+
+require 'sensu-plugins-haproxy/version'
+
+# Load the defaults
+
 #
-# Set gem version
+# Default class
 #
-module SensuPluginsHaproxy
-  # Gem version
-  VERSION = '0.0.1.alpha.2'
+module SensuPluginsHAProxy
+  class << self
+  end
+
+  class << self
+  end
 end
