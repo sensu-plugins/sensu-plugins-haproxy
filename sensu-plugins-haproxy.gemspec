@@ -25,18 +25,18 @@ Gem::Specification.new do |s|
                                'development_status' => 'active',
                                'production_status'  => 'unstable - testing recommended'
   }
-  s.name                   = 'sensu-plugins-sensu-plugins-haproxy'
+  s.name                   = 'sensu-plugins-haproxy'
   s.platform               = Gem::Platform::RUBY
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 1.9.3'
   s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
-  s.summary                = 'Sensu plugins for workign with haproxy'
+  s.summary                = 'Sensu plugins for working with haproxy'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.version                = SensuPluginsHaproxy::VERSION
+  s.version                = SensuPluginsHAProxy::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '1.1.0'
 
-  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 0'
   s.add_development_dependency 'rubocop',       '0.17.0'
   s.add_development_dependency 'rspec',         '~> 3.1'
   s.add_development_dependency 'bundler',       '~> 1.7'
