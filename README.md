@@ -9,8 +9,8 @@
 ## Functionality
 
 ## Files
- * bin/check-haproxy
- * bin/metrics-haproxy
+ * bin/check-haproxy.rb
+ * bin/metrics-haproxy.rb
 
 ## Usage
 
