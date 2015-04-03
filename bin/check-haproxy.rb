@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 #
-#   check-haproxy
+#   check-haproxy.rb
 #
 # DESCRIPTION:
 #   Defaults to checking if ALL services in the given group are up; with
@@ -14,12 +14,8 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: socket
-#   gem: csv
-#   gem: uri
 #
 # USAGE:
-#   #YELLOW
 #
 # NOTES:
 #

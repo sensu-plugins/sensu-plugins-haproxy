@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 #
-#   metrics-haproxy
+#   metrics-haproxy.rb
 #
 # DESCRIPTION:
 #   If you are occassionally seeing "nil output" from this check, make sure you have
@@ -14,11 +14,6 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: net/http
-#   gem: net/https
-#   gem: socket
-#   gem: csv
-#   gem: uri
 #
 # USAGE:
 #
