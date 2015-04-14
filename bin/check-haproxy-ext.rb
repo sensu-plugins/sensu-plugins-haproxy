@@ -1,17 +1,17 @@
 #  Haproxy Extension Check
-# 
+#
 #  DESCRIPTION:
 #    Checks haproxy backends and reports on the status
-#    Sensu Extensions run inside the main client loop and use 
+#    Sensu Extensions run inside the main client loop and use
 #    significantly less system resources.
 #
-# 
+#
 #  OUTPUT:
 #    No output. Yields directly to sensu client
-# 
+#
 #  PLATFORMS:
 #    Linux
-# 
+#
 #  DEPENDENCIES:
 #    gem: sensu > 0.17.1
 #    gem: sensu-plugin
@@ -19,7 +19,7 @@
 #    gem: socket
 #    gem: uri
 #    gem: net/http
-# 
+#
 #  USAGE:
 #    Copy to /etc/sensu/extensions/checks/check-haproxy-ext.rb
 #
@@ -45,15 +45,15 @@
 #        }
 #      }
 #    }
-# 
+#
 #  NOTES:
 #    REQUIRES SENSU 0.17.1 or HIGHER
-# 
+#
 #  LICENSE:
 #    Igor Shpakov < Igorshp@users.noreply.github.com >
 #    Released under the same terms as Sensu (the MIT license); see LICENSE
 #    for details.
-# 
+#
 
 require 'net/http'
 require 'socket'
@@ -62,6 +62,9 @@ require 'uri'
 
 module Sensu
   module Extension
+    #
+    # Haproxy Check Extension
+    #
     class Haproxy < Check
       def name
         'haproxy'
