@@ -1,36 +1,59 @@
-# Haproxy Extension Check
+#  Haproxy Extension Check
+# 
+#  DESCRIPTION:
+#    Checks haproxy backends and reports on the status
+#    Sensu Extensions run inside the main client loop and use 
+#    significantly less system resources.
 #
-# Checks haproxy backends and reports on the status
+# 
+#  OUTPUT:
+#    No output. Yields directly to sensu client
+# 
+#  PLATFORMS:
+#    Linux
+# 
+#  DEPENDENCIES:
+#    gem: sensu > 0.17.1
+#    gem: sensu-plugin
+#    gem: csv
+#    gem: socket
+#    gem: uri
+#    gem: net/http
+# 
+#  USAGE:
+#    Copy to /etc/sensu/extensions/checks/check-haproxy-ext.rb
 #
-# REQUIRES SENSU 0.17.1 or HIGHER
+#    Define a check in following format:
 #
-# Installation:
-# Copy to /etc/sensu/extensions/checks/check-haproxy-ext.rb
-#
-# Usage:
-# {
-#   "checks": {
-#     "check_haproxy": {
-#       "extension": "haproxy",
-#       "subscribers": [],
-#       "handlers": [
-#         "default"
-#       ],
-#       "interval": 20,
-#       "haproxy": {  #required
-#         "stats_source": "localhost",
-#         "port": "22002", #required
-#         "service": "backend1", # optional
-#         "crit_percent": 51, #optional
-#         "warn_percent": 70, #optional
-#         "all_services": "false"
-#       }
-#     }
-#   }
-# }
-#
-# Released under the same terms as Sensu (the MIT license); see LICENSE
-# for details.
+#    {
+#      "checks": {
+#        "check_haproxy": {
+#          "extension": "haproxy",
+#          "subscribers": [],
+#          "handlers": [
+#            "default"
+#          ],
+#          "interval": 20,
+#          "haproxy": {  #required
+#            "stats_source": "localhost",
+#            "port": "22002", #required
+#            "service": "backend1", # optional
+#            "crit_percent": 51, #optional
+#            "warn_percent": 70, #optional
+#            "all_services": "false"
+#          }
+#        }
+#      }
+#    }
+# 
+#  NOTES:
+#    REQUIRES SENSU 0.17.1 or HIGHER
+# 
+#  LICENSE:
+#    Igor Shpakov < Igorshp@users.noreply.github.com >
+#    Released under the same terms as Sensu (the MIT license); see LICENSE
+#    for details.
+# 
 
 require 'net/http'
 require 'socket'
