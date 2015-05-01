@@ -1,14 +1,11 @@
-#### 0.0.1.alpha.1
+#Change Log
+This project adheres to [Semantic Versioning](http://semver.org/).
 
-* initial release, functionally identical to the community plugins repo
+This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
-#### 0.0.1.alpha.2
+## Unreleased][unreleased]
 
-* pin all development and runtime dependencies
+## 0.0.1 - 2015-04-30
 
-#### 0.0.1.alpha.3
-
-* update Vagrantfile
-* add gem metadata
-* modify .gitignore
-* add new version and bump methods and tasks
+### Added
+- initial release

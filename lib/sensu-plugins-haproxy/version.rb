@@ -8,7 +8,7 @@ module SensuPluginsHAProxy
     MINOR = 0
     PATCH = 1
 
-    VER_STRING = [MAJOR, MINOR, PATCH, 'alpha.3'].compact.join('.')
+    VER_STRING = [MAJOR, MINOR, PATCH].compact.join('.')
 
     NAME   = 'sensu-plugins-haproxy'
     BANNER = "#{NAME} v%s"
