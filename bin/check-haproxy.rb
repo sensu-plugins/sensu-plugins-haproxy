@@ -17,8 +17,6 @@
 #
 # USAGE:
 #
-# NOTES:
-#
 # LICENSE:
 #   Copyright 2011 Sonian, Inc. and contributors. <support@sensuapp.org>
 #   Released under the same terms as Sensu (the MIT license); see LICENSE

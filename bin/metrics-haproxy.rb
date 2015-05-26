@@ -17,8 +17,6 @@
 #
 # USAGE:
 #
-# NOTES:
-#
 # LICENSE:
 #   Pete Shima <me@peteshima.com>, Joe Miller <https://github.com/joemiller>
 #   Released under the same terms as Sensu (the MIT license); see LICENSE
