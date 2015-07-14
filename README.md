@@ -1,6 +1,6 @@
 ## Sensu-Plugins-haproxy
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-haproxy.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-haproxy)
+[ ![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-haproxy.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-haproxy)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-haproxy.svg)](http://badge.fury.io/rb/sensu-plugins-haproxy)
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-haproxy)
