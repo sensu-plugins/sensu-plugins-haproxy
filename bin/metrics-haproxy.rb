@@ -102,7 +102,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: 1,
          proc: proc(&:to_i)
 
-  def acquire_stats # rubocop:disable all
+  def acquire_stats
     uri = URI.parse(config[:connection])
 
     if uri.is_a?(URI::Generic) && File.socket?(uri.path)
