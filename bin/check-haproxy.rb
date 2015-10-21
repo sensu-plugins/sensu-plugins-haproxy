@@ -29,8 +29,6 @@ require 'socket'
 require 'csv'
 require 'uri'
 
-FIXNUM_MAX = (2**(0.size * 8 -2) -1)
-
 #
 # Check HA Proxy
 #
@@ -77,9 +75,9 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          description: 'Minimum Server Warn Count, default: 0'
   option :min_crit_count,
          short: '-X COUNT',
-         default: FIXNUM_MAX,
+         default: 0,
          proc: proc(&:to_i),
-         description: "Minimum Server Critical Count, default: #{FIXNUM_MAX}"
+         description: "Minimum Server Critical Count, default: 0"
   option :session_warn_percent,
          short: '-W PERCENT',
          boolean: true,
@@ -130,13 +128,13 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
 
       status = "UP: #{percent_up}% of #{services.size} /#{config[:service]}/ services" + (failed_names.empty? ? '' : ", DOWN: #{failed_names.join(', ')}")
 
-      if services.size > config[:min_crit_count]
+      if services.size < config[:min_crit_count]
         critical status
       elsif percent_up < config[:crit_percent]
         critical status
       elsif !critical_sessions.empty?
         critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
-      elsif service.size < config[:min_warn_count]
+      elsif services.size < config[:min_warn_count]
         warning status
       elsif percent_up < config[:warn_percent]
         warning status
