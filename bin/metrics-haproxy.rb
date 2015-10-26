@@ -125,6 +125,10 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
     return nil
   end
 
+  def output(*args)
+    super(*args) unless args[1].nil?
+  end
+
   def run #rubocop:disable all
     out = nil
     1.upto(config[:retries]) do |_i|
