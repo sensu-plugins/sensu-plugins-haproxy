@@ -80,6 +80,16 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          default: 90,
          proc: proc(&:to_i),
          description: 'Session Limit Critical Percent, default: 90'
+  option :min_warn_count,
+         short: '-M COUNT',
+         default: 0,
+         proc: proc(&:to_i),
+         description: 'Minimum Server Warn Count, default: 0'
+  option :min_crit_count,
+         short: '-X COUNT',
+         default: 0,
+         proc: proc(&:to_i),
+         description: 'Minimum Server Critical Count, default: 0'
   option :all_services,
          short: '-A',
          boolean: true,
@@ -117,10 +127,14 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       warning_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_warn_percent] }
 
       status = "UP: #{percent_up}% of #{services.size} /#{config[:service]}/ services" + (failed_names.empty? ? '' : ", DOWN: #{failed_names.join(', ')}")
-      if percent_up < config[:crit_percent]
+      if services.size < config[:min_crit_count]
+        critical status
+      elsif percent_up < config[:crit_percent]
         critical status
       elsif !critical_sessions.empty?
         critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
+      elsif services.size < config[:min_warn_count]
+        warning status
       elsif percent_up < config[:warn_percent]
         warning status
       elsif !warning_sessions.empty?
