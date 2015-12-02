@@ -192,7 +192,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       end.reject do |svc| # rubocop: disable MultilineBlockChain
         %w(FRONTEND BACKEND).include?(svc[:svname])
       end.reject do |svc| # rubocop: disable MultilineBlockChain
-        config[:ignore_ini] && svc[:last_chk] == 'INI'
+        config[:ignore_ini] && svc[:check_status] == 'INI'
       end
     end
   end
