@@ -102,6 +102,10 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-f',
          boolean: false,
          description: 'Missing CRIT, flag enables'
+  option :ignore_ini,
+         short: '-i',
+         boolean: false,
+         description: 'Ignore checks during initialization'
   option :service,
          short: '-s SVC',
          description: 'Service Name to Check'
@@ -187,6 +191,8 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         # #YELLOW
       end.reject do |svc| # rubocop: disable MultilineBlockChain
         %w(FRONTEND BACKEND).include?(svc[:svname])
+      end.reject do |svc| # rubocop: disable MultilineBlockChain
+        config[:ignore_ini] && svc[:last_chk] == 'INI'
       end
     end
   end
