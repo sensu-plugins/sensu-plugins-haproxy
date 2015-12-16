@@ -137,14 +137,14 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       critical_backends = services.select do |svc|
         config[:backend_session_crit_percent] &&
         svc[:svname] == 'BACKEND' &&
-        svc[:slim].to_i > 0 &&
+        svc[:smax].to_i > 0 &&
         (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
       end
 
       warning_backends = services.select do |svc|
         config[:backend_session_warn_percent] &&
         svc[:svname] == 'BACKEND' &&
-        svc[:slim].to_i > 0 &&
+        svc[:smax].to_i > 0 &&
         (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
       end
 
@@ -157,16 +157,16 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_crit_percent] && !critical_backends.empty?
         critical status + '; Active backends critical: ' +
-          critical_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:slim]} for #{s[:pxname]} backend." }.join(', ')
+          critical_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
       elsif services.size < config[:min_warn_count]
         warning status
       elsif percent_up < config[:warn_percent]
         warning status
-      elsif !warning_sessions.empty? && config[:backend_session_warning_percent].nil?
+      elsif !warning_sessions.empty? && config[:backend_session_warn_percent].nil?
         warning status + '; Active sessions warning: ' + warning_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_warn_percent] && !warning_backends.empty?
         critical status + '; Active backends warning: ' +
-          warning_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:slim]} for #{s[:pxname]} backend." }.join(', ')
+          warning_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
       else
         ok status
       end
