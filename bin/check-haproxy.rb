@@ -82,12 +82,10 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          description: 'Session Limit Critical Percent, default: 90'
   option :backend_session_warn_percent,
          short: '-b PERCENT',
-         default: 75,
          proc: proc(&:to_i),
          description: 'Per Backend Session Limit Warning Percent, default: 75'
   option :backend_session_crit_percent,
          short: '-B PERCENT',
-         default: 90,
          proc: proc(&:to_i),
          description: 'Per Backend Session Limit Critical Percent, default: 90'
   option :min_warn_count,
@@ -137,11 +135,17 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       warning_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_warn_percent] }
 
       critical_backends = services.select do |svc|
-        svc[:svname] == 'BACKEND' && svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:backend_session_crit_percent]
+        config[:backend_session_crit_percent] &&
+        svc[:svname] == 'BACKEND' &&
+        svc[:slim].to_i > 0 &&
+        (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
       end
 
       warning_backends = services.select do |svc|
-        svc[:svname] == 'BACKEND' && svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:backend_session_warn_percent]
+        config[:backend_session_warn_percent] &&
+        svc[:svname] == 'BACKEND' &&
+        svc[:slim].to_i > 0 &&
+        (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
       end
 
       status = "UP: #{percent_up}% of #{services.size} /#{config[:service]}/ services" + (failed_names.empty? ? '' : ", DOWN: #{failed_names.join(', ')}")
