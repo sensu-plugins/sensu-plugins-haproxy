@@ -83,11 +83,11 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
   option :backend_session_warn_percent,
          short: '-b PERCENT',
          proc: proc(&:to_i),
-         description: 'Per Backend Session Limit Warning Percent, default: 75'
+         description: 'Per Backend Session Limit Warning Percent'
   option :backend_session_crit_percent,
          short: '-B PERCENT',
          proc: proc(&:to_i),
-         description: 'Per Backend Session Limit Critical Percent, default: 90'
+         description: 'Per Backend Session Limit Critical Percent'
   option :min_warn_count,
          short: '-M COUNT',
          default: 0,
