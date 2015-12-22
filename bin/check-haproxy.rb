@@ -106,6 +106,14 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-m',
          boolean: true,
          description: 'Missing OK, flag enables'
+  option :missing_fail,
+         short: '-f',
+         boolean: false,
+         description: 'Missing CRIT, flag enables'
+  option :ignore_ini,
+         short: '-i',
+         boolean: false,
+         description: 'Ignore checks during initialization'
   option :service,
          short: '-s SVC',
          description: 'Service Name to Check'
@@ -123,7 +131,9 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
 
     if services.empty?
       message "No services matching /#{config[:service]}/"
-      if config[:missing_ok]
+      if config[:missing_fail]
+        critical
+      elsif config[:missing_ok]
         ok
       else
         warning
@@ -209,6 +219,8 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         # #YELLOW
       end.reject do |svc| # rubocop: disable MultilineBlockChain
         %w(FRONTEND BACKEND).include?(svc[:svname])
+      end.reject do |svc| # rubocop: disable MultilineBlockChain
+        config[:ignore_ini] && svc[:check_status] == 'INI'
       end
     end
   end
