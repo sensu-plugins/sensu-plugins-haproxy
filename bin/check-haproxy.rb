@@ -136,16 +136,16 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
 
       critical_backends = services.select do |svc|
         config[:backend_session_crit_percent] &&
-        svc[:svname] == 'BACKEND' &&
-        svc[:smax].to_i > 0 &&
-        (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
+          svc[:svname] == 'BACKEND' &&
+          svc[:smax].to_i > 0 &&
+          (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
       end
 
       warning_backends = services.select do |svc|
         config[:backend_session_warn_percent] &&
-        svc[:svname] == 'BACKEND' &&
-        svc[:smax].to_i > 0 &&
-        (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
+          svc[:svname] == 'BACKEND' &&
+          svc[:smax].to_i > 0 &&
+          (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
       end
 
       status = "UP: #{percent_up}% of #{services.size} /#{config[:service]}/ services" + (failed_names.empty? ? '' : ", DOWN: #{failed_names.join(', ')}")
@@ -157,7 +157,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_crit_percent] && !critical_backends.empty?
         critical status + '; Active backends critical: ' +
-          critical_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
+                 critical_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
       elsif services.size < config[:min_warn_count]
         warning status
       elsif percent_up < config[:warn_percent]
@@ -166,7 +166,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         warning status + '; Active sessions warning: ' + warning_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_warn_percent] && !warning_backends.empty?
         critical status + '; Active backends warning: ' +
-          warning_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
+                 warning_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
       else
         ok status
       end
@@ -203,7 +203,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
     if config[:all_services]
       haproxy_stats
     else
-      regexp = config[:exact_match] ? Regexp.new("^#{config[:service]}$") : Regexp.new("#{config[:service]}")
+      regexp = config[:exact_match] ? Regexp.new("^#{config[:service]}$") : Regexp.new(config[:service].to_s)
       haproxy_stats.select do |svc|
         svc[:pxname] =~ regexp
         # #YELLOW

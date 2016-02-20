@@ -80,7 +80,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
          short: '-f BACKEND1[,BACKEND2]',
          long: '--backends BACKEND1[,BACKEND2]',
          proc: proc { |l| l.split(',') },
-         default: []  # an empty list means show all backends
+         default: [] # an empty list means show all backends
 
   option :server_metrics,
          description: 'Add metrics for backend servers',
