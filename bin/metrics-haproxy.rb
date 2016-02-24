@@ -141,6 +141,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
       warning "Unable to fetch stats from haproxy after #{config[:retries]} attempts"
     end
 
+    up_by_backend = {}
     parsed = CSV.parse(out)
     parsed.shift
     parsed.each do |line|
@@ -175,7 +176,17 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
       elsif config[:server_metrics]
         output "#{config[:scheme]}.#{line[0]}.#{line[1]}.session_total", line[7]
       end
+
+      if line[1] != 'BACKEND' && !line[1].nil?
+        up_by_backend[line[0]] ||= 0
+        up_by_backend[line[0]] += (line[17] == 'UP') ? 1 : 0
+      end
     end
+
+    up_by_backend.each_pair do |backend, count|
+      output "#{config[:scheme]}.#{backend}.num_up", count
+    end
+
     ok
   end
 end
