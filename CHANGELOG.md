@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+- added `num_up` metric for each backend set showing the number of available
+  backends.
+
 ## [0.0.5] - 2015-11-26
 ### Changed
 - alert on min server count
