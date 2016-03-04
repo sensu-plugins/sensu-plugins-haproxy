@@ -5,8 +5,13 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
-- added `num_up` metric for each backend set showing the number of available
-  backends.
+## [0.1.0] - 2016-03-04
+### Added
+- added `num_up` metric for each backend set showing the number of available backends
+- added flags to check session availability per backend
+
+### Changed
+- update rubocop rules and fix errors
 
 ## [0.0.5] - 2015-11-26
 ### Changed
@@ -32,7 +37,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.5...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.5...0.1.0
 [0.0.5]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.4...0.0.5
 [0.0.4]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.3...0.0.4
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.2...0.0.3
