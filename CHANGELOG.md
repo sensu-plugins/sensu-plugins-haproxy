@@ -5,6 +5,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+## [0.1.1] - 2016-04-22
+### Added
+- added session_current to output for server_metrics
+
 ## [0.1.0] - 2016-03-04
 ### Added
 - added `num_up` metric for each backend set showing the number of available backends
