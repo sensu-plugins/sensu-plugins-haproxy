@@ -175,6 +175,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
         output "#{config[:scheme]}.#{line[0]}.average_time", line[61]
       elsif config[:server_metrics]
         output "#{config[:scheme]}.#{line[0]}.#{line[1]}.session_total", line[7]
+        output "#{config[:scheme]}.#{line[0]}.#{line[1]}.session_current", line[4]
       end
 
       if line[1] != 'BACKEND' && !line[1].nil?
