@@ -5,7 +5,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
-## [0.1.1] - 2016-04-22
+## [0.1.1] - 2016-04-23
 ### Added
 - added session_current to output for server_metrics
 
