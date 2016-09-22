@@ -130,7 +130,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       end
     else
       percent_up = 100 * services.count { |svc| svc[:status] == 'UP' || svc[:status] == 'OPEN' || svc[:status] == 'no check' } / services.size
-      failed_names = services.reject { |svc| svc[:status] == 'UP' || svc[:status] == 'OPEN' || svc[:status] == 'no check' }.map { |svc| svc[:svname] }
+      failed_names = services.reject { |svc| svc[:status] == 'UP' || svc[:status] == 'OPEN' || svc[:status] == 'no check' }.map { |svc| "#{svc[:pxname]}/#{svc[:svname]}" }
       critical_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_crit_percent] }
       warning_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_warn_percent] }
 
