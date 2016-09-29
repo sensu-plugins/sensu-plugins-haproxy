@@ -6,6 +6,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Changed
 - added names of the failed backends to check-haproxy.rb status
+- added check status of failed backends to check-haproxy.rb output
 
 ## [0.1.1] - 2016-04-23
 ### Added
