@@ -7,10 +7,14 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - added names of the failed backends to check-haproxy.rb status
 - added check status of failed backends to check-haproxy.rb output
+- support for Ruby 2.3.0
 
 ### Changed
 - check-haproxy.rb: Services without a health check should not be considered failed
 - Update to rubocop 0.40 and cleanup
+
+### Removed
+- Ruby 1.9.3 support
 
 ## [0.1.1] - 2016-04-23
 ### Added
