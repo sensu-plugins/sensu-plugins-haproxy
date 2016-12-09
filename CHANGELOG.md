@@ -4,9 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
-### Changed
+### Added
 - added names of the failed backends to check-haproxy.rb status
 - added check status of failed backends to check-haproxy.rb output
+
+### Changed
+- check-haproxy.rb: Services without a health check should not be considered failed
+- Update to rubocop 0.40 and cleanup
 
 ## [0.1.1] - 2016-04-23
 ### Added
