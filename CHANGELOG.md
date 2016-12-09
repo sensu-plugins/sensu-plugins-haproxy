@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.0.0] - 2016-12-08
 ### Added
 - added names of the failed backends to check-haproxy.rb status
 - added check status of failed backends to check-haproxy.rb output
@@ -52,7 +54,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.1...1.0.0
 [0.1.1]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.5...0.1.0
 [0.0.5]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.0.4...0.0.5
