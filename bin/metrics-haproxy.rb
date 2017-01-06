@@ -180,7 +180,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
 
       if line[1] != 'BACKEND' && !line[1].nil?
         up_by_backend[line[0]] ||= 0
-        up_by_backend[line[0]] += (line[17] == 'UP') ? 1 : 0
+        up_by_backend[line[0]] += line[17].start_with?('UP') ? 1 : 0
       end
     end
 
