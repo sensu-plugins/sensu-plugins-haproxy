@@ -102,6 +102,10 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-A',
          boolean: true,
          description: 'Check ALL Services, flag enables'
+  option :include_maint,
+         long: '--include-maint',
+         boolean: false,
+         description: 'Include servers in maintanance mode while checking (as DOWN)'
   option :missing_ok,
          short: '-m',
          boolean: true,
@@ -113,6 +117,13 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-e',
          boolean: false,
          description: 'Whether service name specified with -s should be exact match or not'
+
+  def service_up?(svc)
+    svc[:status].start_with?('UP') ||
+      svc[:status] == 'OPEN' ||
+      svc[:status] == 'no check' ||
+      svc[:status].start_with?('DRAIN')
+  end
 
   def run #rubocop:disable all
     if config[:service] || config[:all_services]
@@ -129,8 +140,8 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
         warning
       end
     else
-      percent_up = 100 * services.count { |svc| svc[:status] == 'UP' || svc[:status] == 'OPEN' || svc[:status] == 'no check' } / services.size
-      failed_names = services.reject { |svc| svc[:status] == 'UP' || svc[:status] == 'OPEN' || svc[:status] == 'no check' }.map do |svc|
+      percent_up = 100 * services.count { |svc| service_up? svc } / services.size
+      failed_names = services.reject { |svc| service_up? svc }.map do |svc|
         "#{svc[:pxname]}/#{svc[:svname]}#{svc[:check_status].to_s.empty? ? '' : '[' + svc[:check_status] + ']'}"
       end
       critical_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_crit_percent] }
@@ -212,6 +223,8 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       end.reject do |svc| # rubocop: disable MultilineBlockChain
         %w(FRONTEND BACKEND).include?(svc[:svname])
       end
+    end.select do |svc|
+      config[:include_maint] || !svc[:status].start_with?('MAINT')
     end
   end
 end
