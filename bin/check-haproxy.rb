@@ -117,6 +117,10 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-e',
          boolean: false,
          description: 'Whether service name specified with -s should be exact match or not'
+  option :missing_fail,
+         short: '-f',
+         boolean: false,
+         description: 'fail on missing service'
 
   def service_up?(svc)
     svc[:status].start_with?('UP') ||
@@ -134,7 +138,9 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
 
     if services.empty?
       message "No services matching /#{config[:service]}/"
-      if config[:missing_ok]
+      if config[:missing_fail]
+        critical
+      elsif config[:missing_ok]
         ok
       else
         warning
