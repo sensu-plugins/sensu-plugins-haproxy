@@ -83,7 +83,7 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: [] # an empty list means show all backends
 
   option :server_metrics,
-         description: 'Add metrics for backend servers',
+         description: 'Gathers additional frontend metrics, i.e. total requests',
          boolean: true,
          long: '--server-metrics',
          default: false
