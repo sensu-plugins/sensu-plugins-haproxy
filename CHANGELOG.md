@@ -7,6 +7,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## [Unreleased]
 ### Added
 - Ruby 2.4.1 testing
+- Frontend request rate metrics to `--server-metrics`
 
 ## [1.1.0] - 2017-01-30
 ### Added
