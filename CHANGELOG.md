@@ -5,9 +5,11 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 
 ## [Unreleased]
+
+## [1.2.0] - 2017-07-25
 ### Added
 - Ruby 2.4.1 testing
-- Add frontend request rate metrics to `--server-metrics`
+- Add frontend request rate metrics to `--server-metrics` (@Evesey)
 
 ## [1.1.0] - 2017-01-30
 ### Added
@@ -63,7 +65,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.1...1.0.0
 [0.1.1]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.0...0.1.1
