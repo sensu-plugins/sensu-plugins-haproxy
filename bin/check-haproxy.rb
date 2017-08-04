@@ -56,6 +56,11 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
          short: '-p PASSWORD',
          long: '--pass PASSWORD',
          description: 'HAproxy web stats password'
+  option :use_ssl,
+         description: 'Use SSL to connect to HAproxy web stats',
+         long: '--use-ssl',
+         boolean: true,
+         default: false
   option :warn_percent,
          short: '-w PERCENT',
          boolean: true,
@@ -201,7 +206,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       out = srv.read
       srv.close
     else
-      res = Net::HTTP.start(config[:stats_source], config[:port]) do |http|
+      res = Net::HTTP.start(config[:stats_source], config[:port], use_ssl: config[:use_ssl]) do |http|
         req = Net::HTTP::Get.new("/#{config[:path]};csv;norefresh")
         unless config[:username].nil?
           req.basic_auth config[:username], config[:password]
