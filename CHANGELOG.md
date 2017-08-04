@@ -5,6 +5,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 
 ## [Unreleased]
+### Added
+- Flag to use SSL in `check-haproxy.rb``
 
 ## [1.2.0] - 2017-07-25
 ### Added
