@@ -5,8 +5,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 
 ## [Unreleased]
+
+## [1.3.0] - 2017-08-05
 ### Added
-- Flag to use SSL in `check-haproxy.rb``
+- Flag to use SSL in `check-haproxy.rb` (@foozmeat) (@Evesey)
 
 ## [1.2.0] - 2017-07-25
 ### Added
@@ -67,7 +69,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/0.1.1...1.0.0
