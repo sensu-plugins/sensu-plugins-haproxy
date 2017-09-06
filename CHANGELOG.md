@@ -5,6 +5,10 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 
 ## [Unreleased]
+### Added
+- added flag to expose all possible metrics `--expose-all`
+- added flag to use raw haproxy metric names `--use-haproxy-names`
+- added flag to include explicit type names in generated metrics names `--use-explicit-names`
 
 ## [1.3.0] - 2017-08-05
 ### Added
