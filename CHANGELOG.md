@@ -7,7 +7,7 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 ### Changed
-- minor changelog updates (@majormoses)
+- update changelog guidelines location (@majormoses)
 
 ## [1.4.0] - 2017-09-09
 ### Added
