@@ -5,10 +5,12 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 
 ## [Unreleased]
+
+## [1.4.0] - 2017-09-09
 ### Added
-- added flag to expose all possible metrics `--expose-all`
-- added flag to use raw haproxy metric names `--use-haproxy-names`
-- added flag to include explicit type names in generated metrics names `--use-explicit-names`
+- metrics-haproxy.rb: new flag to expose all possible metrics `--expose-all` (@bergerx)
+- added flag to use raw haproxy metric names `--use-haproxy-names` (@bergerx)
+- added flag to include explicit type names in generated metrics names  `--use-explicit-names` (@bergerx)
 
 ## [1.3.0] - 2017-08-05
 ### Added
@@ -73,7 +75,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.4.0...HEAD
+[1.4.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.0.0...1.1.0
