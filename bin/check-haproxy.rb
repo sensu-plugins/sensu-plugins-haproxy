@@ -178,7 +178,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       elsif percent_up < config[:crit_percent]
         critical status
       elsif !critical_sessions.empty? && config[:backend_session_crit_percent].nil?
-        critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
+        critical status + '; Active sessions critical: ' + critical_sessions.map { |s| "#{s[:scur]} of #{s[:slim]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_crit_percent] && !critical_backends.empty?
         critical status + '; Active backends critical: ' +
                  critical_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
@@ -187,7 +187,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       elsif percent_up < config[:warn_percent]
         warning status
       elsif !warning_sessions.empty? && config[:backend_session_warn_percent].nil?
-        warning status + '; Active sessions warning: ' + warning_sessions.map { |s| "#{s[:scur]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
+        warning status + '; Active sessions warning: ' + warning_sessions.map { |s| "#{s[:scur]} of #{s[:slim]} #{s[:pxname]}.#{s[:svname]}" }.join(', ')
       elsif config[:backend_session_warn_percent] && !warning_backends.empty?
         critical status + '; Active backends warning: ' +
                  warning_backends.map { |s| "current sessions: #{s[:scur]}, maximum sessions: #{s[:smax]} for #{s[:pxname]} backend." }.join(', ')
