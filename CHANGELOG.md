@@ -7,6 +7,9 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 ### Changed
+- change backends services sessions check comparison to slim instead of smax in check-haproxy.rb - fixes issue [#39](https://github.com/sensu-plugins/sensu-plugins-haproxy/issues/39) (@jindraj)
+
+### Changed
 - update changelog guidelines location (@majormoses)
 
 ## [1.4.0] - 2017-09-09
