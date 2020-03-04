@@ -18,6 +18,7 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 - update changelog guidelines location (@majormoses)
 - Updated bundler to '~> 2.1'
 - Updated rubocop to '~> 0.80.1'
+- Updated codeclimate-test-reporter to '~> 1.0'
 - Remediated rubocop warnings
 
 
