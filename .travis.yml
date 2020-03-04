@@ -4,9 +4,6 @@ cache:
 install:
 - bundle install
 rvm:
-- 2.0
-- 2.1
-- 2.2
 - 2.3.0
 - 2.4.1
 notifications:
@@ -19,17 +16,23 @@ script:
 - bundle exec rake default
 - gem build sensu-plugins-haproxy.gemspec
 - gem install sensu-plugins-haproxy-*.gem
+before_deploy:
+- bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
-  provider: rubygems
+- provider: rubygems
   api_key:
     secure: EMGor8yb5YaFIzI0tdVW4x13X5X52edofGhW+aHFulAeTDPkPYJbQwZQlTae266ZGE32gi52p/A99m4PTrbvKoWphc2njkxM3q6JEk1zJprzei1wVYneqaRTaiqOwMpehqDCzRblbOiQWn3bhr3KEgPn0Bvaw4+LIPfitPhWixE=
   gem: sensu-plugins-haproxy
   on:
     tags: true
     all_branches: true
-    rvm: 2.0
-    rvm: 2.1
-    rvm: 2.2
     rvm: 2.3.0
     rvm: 2.4.1
     repo: sensu-plugins/sensu-plugins-haproxy
+- provider: script
+  script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-haproxy
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.4.1
