@@ -12,9 +12,14 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 ### Added
 - Travis build automation to generate Sensu Asset tarballs that can be used n conjunction with Sensu provided ruby runtime assets and the Bonsai Asset Index
 - Require latest sensu-plugin for [Sensu Go support](https://github.com/sensu-plugins/sensu-plugin#sensu-go-enablement)
+- Bonsai integration
 
 ### Changed
 - update changelog guidelines location (@majormoses)
+- Updated bundler to '~> 2.1'
+- Updated rubocop to '~> 0.80.1'
+- Remediated rubocop warnings
+
 
 ## [1.4.0] - 2017-09-09
 ### Added
