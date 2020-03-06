@@ -6,11 +6,24 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 
 ## [Unreleased]
+### Breaking Changes
+- Bump `sensu-plugin` dependency from `~> 1.2` to `~> 4.0` you can read the changelog entries for [4.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#400---2018-02-17), [3.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04), and [2.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29)
+
+### Added
+- Travis build automation to generate Sensu Asset tarballs that can be used n conjunction with Sensu provided ruby runtime assets and the Bonsai Asset Index
+- Require latest sensu-plugin for [Sensu Go support](https://github.com/sensu-plugins/sensu-plugin#sensu-go-enablement)
+- Bonsai integration
+
 ### Changed
 - change backends services sessions check comparison to slim instead of smax in check-haproxy.rb - fixes issue [#39](https://github.com/sensu-plugins/sensu-plugins-haproxy/issues/39) (@jindraj)
 
 ### Changed
 - update changelog guidelines location (@majormoses)
+- Updated bundler to '~> 2.1'
+- Updated rubocop to '~> 0.80.1'
+- Updated codeclimate-test-reporter to '~> 1.0'
+- Remediated rubocop warnings
+
 
 ## [1.4.0] - 2017-09-09
 ### Added
