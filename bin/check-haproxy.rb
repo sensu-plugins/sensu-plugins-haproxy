@@ -163,15 +163,15 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       critical_backends = services.select do |svc|
         config[:backend_session_crit_percent] &&
           svc[:svname] == 'BACKEND' &&
-          svc[:smax].to_i > 0 && # rubocop:disable Style/NumericPredicate
-          (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
+          svc[:slim].to_i > 0 && # rubocop:disable Style/NumericPredicate
+          (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:backend_session_crit_percent]
       end
 
       warning_backends = services.select do |svc|
         config[:backend_session_warn_percent] &&
           svc[:svname] == 'BACKEND' &&
-          svc[:smax].to_i > 0 && # rubocop:disable Style/NumericPredicate
-          (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
+          svc[:slim].to_i > 0 && # rubocop:disable Style/NumericPredicate
+          (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:backend_session_warn_percent]
       end
 
       status = "UP: #{percent_up}% of #{services.size} /#{config[:service]}/ services" + (failed_names.empty? ? '' : ", DOWN: #{failed_names.join(', ')}")

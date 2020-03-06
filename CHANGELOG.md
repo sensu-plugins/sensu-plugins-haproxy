@@ -15,6 +15,9 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 - Bonsai integration
 
 ### Changed
+- change backends services sessions check comparison to slim instead of smax in check-haproxy.rb - fixes issue [#39](https://github.com/sensu-plugins/sensu-plugins-haproxy/issues/39) (@jindraj)
+
+### Changed
 - update changelog guidelines location (@majormoses)
 - Updated bundler to '~> 2.1'
 - Updated rubocop to '~> 0.80.1'
