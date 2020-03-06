@@ -7,6 +7,11 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [2.0.1] - 2020-03-06
+
+### Changed
+- Nothing, empty release with Travis fixed to deploy release
+
 ## [2.0.0] - 2020-03-06
 ### Breaking Changes
 - Bump `sensu-plugin` dependency from `~> 1.2` to `~> 4.0` you can read the changelog entries for [4.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#400---2018-02-17), [3.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04), and [2.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29)
@@ -95,7 +100,9 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.1...HEAD
+[2.0.1]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.0...2.0.1
+[2.0.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.4.0...2.0.0
 [1.4.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.1.0...1.2.0
