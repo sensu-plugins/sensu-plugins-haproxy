@@ -6,6 +6,8 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 
 ## [Unreleased]
+
+## [2.0.0] - 2020-03-06
 ### Breaking Changes
 - Bump `sensu-plugin` dependency from `~> 1.2` to `~> 4.0` you can read the changelog entries for [4.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#400---2018-02-17), [3.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#300---2018-12-04), and [2.0](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v200---2017-03-29)
 
@@ -15,15 +17,14 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 - Bonsai integration
 
 ### Changed
-- change backends services sessions check comparison to slim instead of smax in check-haproxy.rb - fixes issue [#39](https://github.com/sensu-plugins/sensu-plugins-haproxy/issues/39) (@jindraj)
-
-### Changed
 - update changelog guidelines location (@majormoses)
 - Updated bundler to '~> 2.1'
 - Updated rubocop to '~> 0.80.1'
+- Updated rake to '~> 13.0'
 - Updated codeclimate-test-reporter to '~> 1.0'
 - Remediated rubocop warnings
-
+- change backends services sessions check comparison to slim instead of smax in check-haproxy.rb - fixes issue [#39](https://github.com/sensu-plugins/sensu-plugins-haproxy/issues/39) (@jindraj)
+- Extended sessions warning and critical output to also show sessions limit.
 
 ## [1.4.0] - 2017-09-09
 ### Added
