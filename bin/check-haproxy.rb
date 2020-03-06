@@ -1,4 +1,6 @@
 #! /usr/bin/env ruby
+# frozen_string_literal: true
+
 #
 #   check-haproxy.rb
 #
@@ -155,20 +157,20 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       failed_names = services.reject { |svc| service_up? svc }.map do |svc|
         "#{svc[:pxname]}/#{svc[:svname]}#{svc[:check_status].to_s.empty? ? '' : '[' + svc[:check_status] + ']'}"
       end
-      critical_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_crit_percent] }
-      warning_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_warn_percent] }
+      critical_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_crit_percent] } # rubocop:disable Style/NumericPredicate
+      warning_sessions = services.select { |svc| svc[:slim].to_i > 0 && (100 * svc[:scur].to_f / svc[:slim].to_f) > config[:session_warn_percent] } # rubocop:disable Style/NumericPredicate
 
       critical_backends = services.select do |svc|
         config[:backend_session_crit_percent] &&
           svc[:svname] == 'BACKEND' &&
-          svc[:smax].to_i > 0 &&
+          svc[:smax].to_i > 0 && # rubocop:disable Style/NumericPredicate
           (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_crit_percent]
       end
 
       warning_backends = services.select do |svc|
         config[:backend_session_warn_percent] &&
           svc[:svname] == 'BACKEND' &&
-          svc[:smax].to_i > 0 &&
+          svc[:smax].to_i > 0 && # rubocop:disable Style/NumericPredicate
           (100 * svc[:scur].to_f / svc[:smax].to_f) > config[:backend_session_warn_percent]
       end
 
@@ -231,8 +233,8 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
       haproxy_stats.select do |svc|
         svc[:pxname] =~ regexp
         # #YELLOW
-      end.reject do |svc| # rubocop: disable MultilineBlockChain
-        %w(FRONTEND BACKEND).include?(svc[:svname])
+      end.reject do |svc| # rubocop: disable Style/MultilineBlockChain
+        %w[FRONTEND BACKEND].include?(svc[:svname])
       end
     end.select do |svc|
       config[:include_maint] || !svc[:status].start_with?('MAINT')
