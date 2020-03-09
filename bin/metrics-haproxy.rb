@@ -1,5 +1,5 @@
 #! /usr/bin/env ruby
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 #
 #   metrics-haproxy.rb
@@ -39,10 +39,10 @@ class HAProxyMetrics < Sensu::Plugin::Metric::CLI::Graphite
   # Check http://cbonte.github.io/haproxy-dconv/1.7/management.html#9.1 for
   # haproxy stats CSV format.
 
-  TYPE_FRONTEND = '0'
-  TYPE_BACKEND = '1'
-  TYPE_SERVER = '2'
-  TYPE_LISTENER = '3'
+  TYPE_FRONTEND = '0'.freeze
+  TYPE_BACKEND = '1'.freeze
+  TYPE_SERVER = '2'.freeze
+  TYPE_LISTENER = '3'.freeze
   # All fields are listed here for ease of long term maintenance.
   # Format: field_index => %w(haproxy-name friendly-name)
   CSV_FIELDS = {
