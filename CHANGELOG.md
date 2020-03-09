@@ -7,6 +7,9 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+### Changed
+- Fixed frozen_string_literal issues
+
 ## [2.0.1] - 2020-03-06
 
 ### Changed
