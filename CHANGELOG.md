@@ -7,6 +7,8 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [2.0.2] - 2020-03-09
+
 ### Changed
 - Fixed frozen_string_literal issues
 
@@ -103,7 +105,8 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.2...HEAD
+[2.0.2]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.1...2.0.2
 [2.0.1]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.0...2.0.1
 [2.0.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.4.0...2.0.0
 [1.4.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.3.0...1.4.0
