@@ -223,7 +223,7 @@ class CheckHAProxy < Sensu::Plugin::Check::CLI
     end
 
     parsed = CSV.parse(out, skip_blanks: true)
-    keys = parsed.shift.reject(&:nil?).map { |k| k.match(/(\w+)/)[0].to_sym }
+    keys = parsed.shift.reject(&:nil?).map { |k| k.match(/([(\-)?\w]+)/)[0].to_sym }
     haproxy_stats = parsed.map { |line| Hash[keys.zip(line)] }
 
     if config[:all_services]

@@ -7,6 +7,9 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+###Fixed
+- 'check-haproxy.rb': Compatibility with HAProxy 2.3.0
+
 ## [2.0.2] - 2020-03-09
 
 ### Changed
