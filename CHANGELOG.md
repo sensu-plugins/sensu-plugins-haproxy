@@ -7,6 +7,8 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [2.0.3] - 2022-01-26
+
 ###Fixed
 - 'check-haproxy.rb': Compatibility with HAProxy 2.3.0
 
@@ -108,7 +110,8 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.2...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.3...HEAD
+[2.0.3]: https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.2...2.0.3
 [2.0.2]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.1...2.0.2
 [2.0.1]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/2.0.0...2.0.1
 [2.0.0]:https://github.com/sensu-plugins/sensu-plugins-haproxy/compare/1.4.0...2.0.0
