@@ -7,7 +7,7 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
-## [2.0.3] - 2022-01-26
+## [2.0.3] - 2022-09-21
 
 ###Fixed
 - 'check-haproxy.rb': Compatibility with HAProxy 2.3.0
@@ -16,6 +16,7 @@ Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ### Changed
 - Fixed frozen_string_literal issues
+- Removed centos6 build
 
 ## [2.0.1] - 2020-03-06
 
